@@ -8,7 +8,7 @@
 import UIKit
 
 class TaskCell: UITableViewCell {
-
+    
     @IBOutlet weak var taskLabel: UILabel!
     @IBOutlet weak var taskDateLabel: UILabel!
     @IBOutlet weak var taskImageView: UIImageView!
