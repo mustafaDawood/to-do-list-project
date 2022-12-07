@@ -44,17 +44,19 @@ class TaskDetailsVC: UIViewController {
             navigationController?.pushViewController(vc, animated: true)
         } }
     @IBAction func deleteButton(_ sender: Any) {
-        let deleteAlert = UIAlertController(title: "Alert", message: "Are you sure to delete task", preferredStyle: .alert)
-        deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
+        
+        let alert = MyAlertViewController(
+            title: "Alert",
+            message: "Are you sure want to delete task",
+            imageName: "warning_icon")
+        alert.addAction(title: "Delete", style: .destructive) { (_) in
             NotificationCenter.default.post(name: NSNotification.Name.init("deleteTask"), object: nil, userInfo: ["deletedTaskIndex":self.currentTaskIndex])
-            let alert = UIAlertController(title: "", message: "task has been deleted", preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: { (_) in
-                self.navigationController?.popViewController(animated: true)
-            }))
-            self.present(alert, animated: true, completion: nil)
-        }))
-        deleteAlert.addAction(UIAlertAction(title: "NO", style: .default, handler: nil))
-        self.present(deleteAlert, animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(title: "NO", style: .default, handler: nil)
+        present(alert, animated: true, completion: nil)
+        
+        
     }
     
     

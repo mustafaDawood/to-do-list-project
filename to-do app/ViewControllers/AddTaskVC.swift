@@ -32,28 +32,28 @@ class AddTaskVC: UIViewController  {
     @IBAction func addTaskButton(_ sender: Any) {
         if addNewTask {
             // alert
-            let alert = UIAlertController(title: "message", message: "you added a new task", preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (_) in
-                self.tabBarController?.selectedIndex = 0
-                self.titleTextField.text = ""
-                self.detailsTextView.text = ""
-            }))
+            let alert = MyAlertViewController(title: "", message: "you added a new task", imageName: nil, preferredStyle: .actionSheet)
             self.present(alert, animated: true, completion: nil)
             // pass notification
             let task = Task(taskName: titleTextField.text! , taskImage : taskImageView.image, taskDetails: detailsTextView.text)
             NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "newTask"), object: nil, userInfo: ["newTask": task])
+            self.dismiss(animated: true, completion: nil)
+            self.tabBarController?.selectedIndex = 0
+            
             
             } else {
                 // when button is clicked to edit task
                 // alert
-            let alert = UIAlertController(title: "message", message: "task has been edited", preferredStyle: UIAlertController.Style.actionSheet)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (_) in
-                self.navigationController?.popViewController(animated: true)
-            }))
+                let alert = MyAlertViewController(title: "", message: "task has been edited", imageName: nil, preferredStyle: .actionSheet)
+//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (_) in
+//                self.navigationController?.popViewController(animated: true)
+//            }))
             self.present(alert, animated: true, completion: nil)
                 // pass notification
                 let editedTask = Task(taskName: titleTextField.text!, taskImage: taskImageView.image, taskDetails: detailsTextView.text)
             NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: "editedTask"), object: nil, userInfo: ["editedTask":editedTask, "editedTaskIndex" : editedTaskIndex])
+                self.dismiss(animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
             }
     }
     
