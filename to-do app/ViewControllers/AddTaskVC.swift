@@ -14,6 +14,7 @@ class AddTaskVC: UIViewController  {
     @IBOutlet weak var detailsTextView: UITextView!
     @IBOutlet weak var mainButton: UIButton!
     @IBOutlet weak var taskImageView: UIImageView!
+    @IBOutlet weak var addPhotoButton: UIButton!
     var editedTask : Task?
     var addNewTask = true
     var editedTaskIndex : Int?
@@ -26,6 +27,7 @@ class AddTaskVC: UIViewController  {
             titleTextField.text = editedTask?.taskName
             detailsTextView.text = editedTask?.taskDetails
             taskImageView.image = editedTask?.taskImage
+            addPhotoButton.setTitle("Edit Photo", for: .normal)
         } }
     
     

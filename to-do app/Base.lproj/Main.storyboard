@@ -233,7 +233,7 @@
                                                 <rect key="frame" x="0.0" y="140" width="418" height="30"/>
                                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                                 <color key="tintColor" systemColor="systemTealColor"/>
-                                                <state key="normal" title="ChangePhoto"/>
+                                                <state key="normal" title="AddPhoto"/>
                                                 <connections>
                                                     <action selector="changePhotoButton:" destination="PUO-5V-ngQ" eventType="touchUpInside" id="wv7-xS-sg4"/>
                                                 </connections>
@@ -283,7 +283,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="418" id="QLG-a8-deU"/>
                                                 </constraints>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -329,6 +328,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add Task" largeTitleDisplayMode="never" id="v3b-oX-O3Z"/>
                     <connections>
+                        <outlet property="addPhotoButton" destination="fKc-Dd-CSd" id="gRm-7D-kE5"/>
                         <outlet property="detailsTextView" destination="yaW-Us-szg" id="Ev4-yf-6yb"/>
                         <outlet property="mainButton" destination="O9C-7G-t1V" id="H2V-49-Ojv"/>
                         <outlet property="taskImageView" destination="bq7-46-cIc" id="UTm-de-b01"/>
